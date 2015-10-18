@@ -9,6 +9,15 @@ _higher-order reducer to ignore redux actions_
 npm install --save redux-ignore
 ```
 
+
+## API
+
+```js
+import ignoreActions from 'redux-ignore';
+ignoreActions(reducer, [ARRAY_OF_ACTIONS])
+```
+
+
 ## Ignoring actions
 
 `redux-ignore` is a reducer enhancer (higher-order reducer), it provides the
