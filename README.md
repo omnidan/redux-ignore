@@ -1,4 +1,4 @@
-# redux-ginore
+# redux-ignore
 
 _higher-order reducer to ignore redux actions_
 

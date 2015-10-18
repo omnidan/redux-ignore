@@ -1,6 +1,6 @@
 {
   "name": "redux-ignore",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "higher-order reducer to ignore redux actions",
   "main": "lib/index.js",
   "scripts": {
