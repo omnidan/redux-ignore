@@ -20,7 +20,7 @@ Firstly, import `redux-ignore`:
 ```js
 // Redux utility functions
 import { combineReducers } from 'redux';
-// Redux Undo store enhancer
+// redux-ignore higher-order reducer
 import ignoreActions from 'redux-ignore';
 ```
 
