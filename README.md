@@ -14,15 +14,22 @@ npm install --save redux-ignore
 
 ```js
 import ignoreActions from 'redux-ignore';
-ignoreActions(reducer, [ARRAY_OF_ACTIONS])
+
+// Ignore actions from an array of actions
+export default ignoreActions(reducer, [ARRAY_OF_ACTIONS])
+
+// Ignore actions from a predicate function
+export default ignoreActions(reducer, (action) => !action.valid);
 ```
 
 
 ## Ignoring actions
 
 `redux-ignore` is a reducer enhancer (higher-order reducer), it provides the
-`ignoreActions` function, which takes an existing reducer and an array of
-actions to be ignored.
+`ignoreActions` function, which takes an existing reducer and either:
+
+- An array of actions to be ignored, or...
+- A predicate function for filtering out actions.
 
 Firstly, import `redux-ignore`:
 
@@ -36,14 +43,16 @@ import ignoreActions from 'redux-ignore';
 Then, add `ignoreActions` to your reducer(s) like this:
 
 ```js
+// Using an array of action types to ignore
 combineReducers({
   counter: ignoreActions(counter, [INCREMENT_COUNTER])
-})
+});
+
+// Using a predicate function to filter out actions
+combineReducers({
+  counter: ignoreActions(counter, (action) => action.type === INCREMENT_COUNTER)
+});
 ```
-
-Now you won't be able to increment the counter anymore, because the
-`INCREMENT_COUNTER` action is ignored.
-
 
 ## What is this magic? How does it work?
 
