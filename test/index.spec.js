@@ -1,18 +1,18 @@
 import assert from 'assert'
 import { ignoreActions, filterActions } from '../src/index'
 
-describe('ignoreActions()', () => {
-  let reducer = (state, action) => {
-    switch (action.type) {
-      case 'FOO':
-        return 'foo-state'
-      case 'BAR':
-        return 'bar-state'
-      default:
-        return 'default-state'
-    }
+let reducer = (state, action) => {
+  switch (action.type) {
+    case 'FOO':
+      return 'foo-state'
+    case 'BAR':
+      return 'bar-state'
+    default:
+      return 'default-state'
   }
+}
 
+describe('ignoreActions()', () => {
   it('should ignore actions with specified types in array', () => {
     let ignoringReducer = ignoreActions(reducer, ['BAR'])
     let action = { type: 'BAR' }
@@ -51,17 +51,6 @@ describe('ignoreActions()', () => {
 })
 
 describe('filterActions()', () => {
-  let reducer = (state, action) => {
-    switch (action.type) {
-      case 'FOO':
-        return 'foo-state'
-      case 'BAR':
-        return 'bar-state'
-      default:
-        return 'default-state'
-    }
-  }
-
   it('should include actions with specified types in array', () => {
     let filteringReducer = filterActions(reducer, ['BAR'])
     let action = { type: 'BAR' }
