@@ -20,6 +20,6 @@ function createActionHandler (ignore) {
 export const ignoreActions = createActionHandler(true)
 export const filterActions = createActionHandler(false)
 
-export default ignoreActions
+export default { ignoreActions, filterActions }
 // /redux-ignore
 
