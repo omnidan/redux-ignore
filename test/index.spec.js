@@ -1,5 +1,5 @@
 import assert from 'assert'
-import {ignoreActions, includeActions} from '../src/index'
+import { ignoreActions, filterActions } from '../src/index'
 
 describe('ignoreActions()', () => {
   let reducer = (state, action) => {
@@ -50,7 +50,7 @@ describe('ignoreActions()', () => {
   })
 })
 
-describe('includeActions()', () => {
+describe('filterActions()', () => {
   let reducer = (state, action) => {
     switch (action.type) {
       case 'FOO':
@@ -63,38 +63,38 @@ describe('includeActions()', () => {
   }
 
   it('should include actions with specified types in array', () => {
-    let includingReducer = includeActions(reducer, ['BAR'])
+    let filteringReducer = filterActions(reducer, ['BAR'])
     let action = { type: 'BAR' }
 
     assert.equal(
-      includingReducer('testing', action),
+      filteringReducer('testing', action),
       'bar-state')
   })
 
   it('should exclude actions that do not have types in array', () => {
-    let includingReducer = includeActions(reducer, ['BAR'])
+    let filteringReducer = filterActions(reducer, ['BAR'])
     let action = { type: 'FOO' }
 
     assert.equal(
-      includingReducer('testing', action),
+      filteringReducer('testing', action),
       'testing')
   })
 
   it('should exclude all actions when no action types array is specified', () => {
-    let includingReducer = includeActions(reducer)
+    let filteringReducer = filterActions(reducer)
     let action = { type: 'BAZ' }
 
     assert.equal(
-      includingReducer('testing', action),
+      filteringReducer('testing', action),
       'testing')
   })
 
   it('should work with a predicate function for actions', () => {
-    let includingReducer = includeActions(reducer, (a) => a.valid)
+    let filteringReducer = filterActions(reducer, (a) => a.valid)
     let action = { type: 'BAR', valid: true }
 
     assert.equal(
-      includingReducer('testing', action),
+      filteringReducer('testing', action),
       'bar-state')
   })
 })
