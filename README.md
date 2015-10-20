@@ -15,9 +15,13 @@ npm install --save redux-ignore
 ## API
 
 ```js
-import ignoreActions from 'redux-ignore';
+import { ignoreActions, filterActions } from 'redux-ignore';
+
 ignoreActions(reducer, [ARRAY_OF_ACTIONS])
 ignoreActions(reducer, (action) => !action.valid)
+
+filterActions(reducer, [ARRAY_OF_ACTIONS])
+filterActions(reducer, (action) => action.valid)
 ```
 
 
@@ -35,7 +39,7 @@ Firstly, import `redux-ignore`:
 // Redux utility functions
 import { combineReducers } from 'redux';
 // redux-ignore higher-order reducer
-import ignoreActions from 'redux-ignore';
+import { ignoreActions } from 'redux-ignore';
 ```
 
 Then, add `ignoreActions` to your reducer(s) like this:
@@ -55,6 +59,20 @@ Alternatively, you can ignore actions via a predicate function:
 combineReducers({
   counter: ignoreActions(counter, (action) => action.type === INCREMENT_COUNTER)
 });
+```
+
+You can also use `filterActions` to only accept actions that are declared in an array, or that satisfy the predicate function:
+
+```js
+import { combineReducers } from 'redux';
+import { filterActions } from 'redux-ignore'; // pull in the filterActions function
+import { STAY_COOL, KEEP_CHILLIN } from './actions';
+
+combineReducers({
+  counter: filterActions(counter, (action) => action.type.match(/COUNTER$/)), // only run on actions that satisfy the regex
+  notACounter: filterActions(notACounter, [STAY_COOL, KEEP_CHILLIN]) // only run for these specific relaxing actions
+});
+
 ```
 
 ## What is this magic? How does it work?
