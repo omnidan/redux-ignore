@@ -25,7 +25,7 @@ filterActions(reducer, (action) => action.valid)
 ```
 
 
-## Ignoring actions
+## Ignoring Actions
 
 `redux-ignore` is a reducer enhancer (higher-order reducer), it provides the
 `ignoreActions` function, which takes an existing reducer and either:
@@ -60,6 +60,9 @@ combineReducers({
   counter: ignoreActions(counter, (action) => action.type === INCREMENT_COUNTER)
 });
 ```
+
+
+## Filtering Actions
 
 You can also use `filterActions` to only accept actions that are declared in an array, or that satisfy the predicate function:
 
