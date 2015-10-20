@@ -15,9 +15,13 @@ npm install --save redux-ignore
 ## API
 
 ```js
-import ignoreActions from 'redux-ignore';
+import ignoreActions, {filterActions} from 'redux-ignore';
+
 ignoreActions(reducer, [ARRAY_OF_ACTIONS])
 ignoreActions(reducer, (action) => !action.valid)
+
+filterActions(reducer, [ARRAY_OF_ACTIONS])
+filterActions(reducer, (action) => action.valid)
 ```
 
 
@@ -35,7 +39,7 @@ Firstly, import `redux-ignore`:
 // Redux utility functions
 import { combineReducers } from 'redux';
 // redux-ignore higher-order reducer
-import { ignoreActions } from 'redux-ignore';
+import ignoreActions from 'redux-ignore';
 ```
 
 Then, add `ignoreActions` to your reducer(s) like this:
