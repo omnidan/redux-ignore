@@ -1,5 +1,5 @@
 import assert from 'assert'
-import ignoreActions, { filterActions } from '../src/index'
+import { ignoreActions, filterActions } from '../src/index'
 
 let reducer = (state, action) => {
   switch (action.type) {
