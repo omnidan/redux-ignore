@@ -4,6 +4,8 @@
 
 _higher-order reducer to ignore redux actions_
 
+[can be used to avoid performance problems in large apps by skipping reducer subtrees](https://twitter.com/dan_abramov/status/656049225566920704)
+
 
 ## Installation
 
