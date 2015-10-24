@@ -22,4 +22,3 @@ export const filterActions = createActionHandler(false)
 
 export default ignoreActions
 // /redux-ignore
-
