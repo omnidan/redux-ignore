@@ -1,6 +1,6 @@
 # redux-ignore
 
-[![NPM version (>=1.1)](https://img.shields.io/npm/v/redux-ignore.svg?style=flat-square)](https://www.npmjs.com/package/redux-ignore) [![Build Status](https://img.shields.io/travis/omnidan/redux-ignore/master.svg?style=flat-square)](https://travis-ci.org/omnidan/redux-ignore) [![Dependencies](https://img.shields.io/david/omnidan/redux-ignore.svg?style=flat-square)](https://david-dm.org/omnidan/redux-ignore) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/) [![https://gratipay.com/omnidan/](https://img.shields.io/gratipay/omnidan.svg?style=flat-square)](https://gratipay.com/omnidan/)
+[![NPM version (>=1.2)](https://img.shields.io/npm/v/redux-ignore.svg?style=flat-square)](https://www.npmjs.com/package/redux-ignore) [![Build Status](https://img.shields.io/travis/omnidan/redux-ignore/master.svg?style=flat-square)](https://travis-ci.org/omnidan/redux-ignore) [![Dependencies](https://img.shields.io/david/omnidan/redux-ignore.svg?style=flat-square)](https://david-dm.org/omnidan/redux-ignore) [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg?style=flat-square)](http://standardjs.com/) [![https://paypal.me/DanielBugl/10](https://img.shields.io/badge/donate-paypal-yellow.svg?style=flat-square)](https://paypal.me/DanielBugl/10) [![https://gratipay.com/~omnidan/](https://img.shields.io/badge/donate-gratipay/bitcoin-yellow.svg?style=flat-square)](https://gratipay.com/~omnidan/)
 
 _higher-order reducer to ignore redux actions_
 
@@ -82,7 +82,7 @@ combineReducers({
 
 ## What is this magic? How does it work?
 
-Have a read of the [Implementing Undo History recipe](https://rackt.github.io/redux/docs/recipes/ImplementingUndoHistory.html)
+Have a read of the [Implementing Undo History recipe](http://redux.js.org/docs/recipes/ImplementingUndoHistory.html)
 in the Redux documents, which explains in detail how higher-order reducers work.
 
 
