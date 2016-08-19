@@ -9,7 +9,9 @@ function createActionHandler (ignore) {
         ? actions
         : (action) => actions.indexOf(action.type) >= 0
 
-    return (state, action) => {
+    const initialState = reducer(undefined, {})
+
+    return (state = initialState, action) => {
       if (predicate(action)) {
         return ignore ? state : reducer(state, action)
       }

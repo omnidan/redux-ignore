@@ -1,4 +1,6 @@
 import assert from 'assert'
+import { createStore } from 'redux'
+
 import { ignoreActions, filterActions } from '../src/index'
 
 let reducer = (state, action) => {
@@ -85,5 +87,14 @@ describe('filterActions()', () => {
     assert.equal(
       filteringReducer('testing', action),
       'bar-state')
+  })
+
+  it('should return an initial state when a redux store is created', () => {
+    let filteringReducer = filterActions(reducer, ['BAR'])
+    let store = createStore(filteringReducer)
+
+    assert.equal(
+      store.getState(),
+      reducer(undefined, {}))
   })
 })
