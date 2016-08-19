@@ -10,6 +10,7 @@ function createActionHandler (ignore) {
         : (action) => actions.indexOf(action.type) >= 0
 
     return (state, action) => {
+      if (typeof state === 'undefined') state = {};
       if (predicate(action)) {
         return ignore ? state : reducer(state, action)
       }
