@@ -72,6 +72,7 @@ You can also use `filterActions` to only accept actions that are declared in an 
 import { combineReducers } from 'redux';
 import { filterActions } from 'redux-ignore'; // pull in the filterActions function
 import { STAY_COOL, KEEP_CHILLIN } from './actions';
+import { counter, notACounter } from './reducers';
 
 combineReducers({
   counter: filterActions(counter, (action) => action.type.match(/COUNTER$/)), // only run on actions that satisfy the regex
