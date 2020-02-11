@@ -83,7 +83,7 @@ combineReducers({
 
 ## What is this magic? How does it work?
 
-Have a read of the [Implementing Undo History recipe](http://redux.js.org/docs/recipes/ImplementingUndoHistory.html)
+Have a read of the [Implementing Undo History recipe](https://redux.js.org/recipes/implementing-undo-history/)
 in the Redux documents, which explains in detail how higher-order reducers work.
 
 
