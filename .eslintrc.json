@@ -1,0 +1,52 @@
+{
+  "extends": [
+    "plugin:jsx-a11y/recommended",
+    "plugin:import/recommended",
+    "react-app",
+    "standard",
+    "standard-react",
+    "prettier",
+    "prettier/react",
+    "prettier/standard"
+  ],
+  "plugins": ["jest", "prettier"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx"]
+      }
+    },
+    "react": {
+      "version": "Infinity"
+    }
+  },
+  "rules": {
+    "prettier/prettier": "error"
+  },
+  "overrides": [
+    {
+      "files": ["test/**/*.spec.js"],
+      "env": {
+        "jest": true,
+        "jest/globals": true
+      },
+      "globals": {
+        "mount": true,
+        "React": true,
+        "render": true,
+        "shallow": true,
+        "shallowWithStyles": true
+      },
+      "rules": {
+        "jest/consistent-test-it": "warn",
+        "jest/no-disabled-tests": "warn",
+        "jest/no-focused-tests": "error",
+        "jest/no-identical-title": "error",
+        "jest/prefer-to-be-null": "warn",
+        "jest/prefer-to-be-undefined": "warn",
+        "jest/prefer-to-have-length": "warn",
+        "jest/valid-expect": "error"
+      }
+    }
+  ]
+}

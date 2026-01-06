@@ -1,5 +1,11 @@
 node_modules
-*.log
+npm-debug.log
+yarn-error.log
 .DS_Store
+dist
 lib
+.nyc_output
 coverage
+es
+lcov.info
+zumper-react-ignore-*.tgz

@@ -1,3 +1,5 @@
+codecov
+dist
 lib
-**/node_modules
-**/webpack.config.js
+es
+node_modules

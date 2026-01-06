@@ -1,13 +1,14 @@
-function isFunction (obj) {
+const isFunction = (obj) => {
   return !!(obj && obj.constructor && obj.call && obj.apply)
 }
 
-function createActionHandler (ignore) {
+const createActionHandler = (ignore) => {
   // redux-ignore higher order reducer
-  return function handleAction (reducer, actions = []) {
+  const handleAction = (reducer, actions = []) => {
+    const set = Array.isArray(actions) ? new Set(actions) : undefined
     const predicate = isFunction(actions)
-        ? actions
-        : (action) => actions.indexOf(action.type) >= 0
+      ? actions
+      : (action) => set.has(action.type)
 
     const initialState = reducer(undefined, {})
 
@@ -15,10 +16,10 @@ function createActionHandler (ignore) {
       if (predicate(action)) {
         return ignore ? state : reducer(state, action)
       }
-
       return ignore ? reducer(state, action) : state
     }
   }
+  return handleAction
 }
 
 export const ignoreActions = createActionHandler(true)
